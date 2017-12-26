@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .container {
+       
+    }
+     #movie {
+         width: 100%;
+     }
+</style>
+<div class="container">
+    <iframe id="movie" src="@ViewBag.Source"></iframe>
+</div>
+
+
+<script>
+    var resize = function() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        document.getElementById("movie").style.height = Math.min((w - 20) * 9 / 16 , h)+ "px";;
+    }
+    window.onload = function () {
+        resize();
+    }
+    window.onresize = function() {
+        resize();
+    }
+</script>
